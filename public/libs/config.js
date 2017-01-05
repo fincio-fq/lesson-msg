@@ -8,7 +8,7 @@ require.config({
         jquery: 'assets/jquery/jquery',
         cookie: 'assets/jquery-cookie/jquery.cookie',
         bootstrap: 'assets/bootstrap/js/bootstrap.min',
-        template: 'assets/artTemplate/template-native'
+        template: 'assets/artTemplate/template',
     },
     shim: {
         bootstrap: {

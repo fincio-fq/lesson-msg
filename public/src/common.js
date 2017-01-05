@@ -1,9 +1,7 @@
 define(['jquery', 'template', 'cookie'], function ($, template) {
 
 
-    $('.navs ul').prev('a').on('click', function () {
-        $(this).next().slideToggle();
-    });
+
 
 
     // 通过检测cookie中有没有PHPSESSID来判断用户是否登录
@@ -19,12 +17,17 @@ define(['jquery', 'template', 'cookie'], function ($, template) {
 
     var source = '<!-- 头像 -->';
     source += '<div class="avatar img-circle">';
-    source += '<img src="<%= tc_avatar %>">';
+    source += '<img src="{{tc_avatar}}">';
     source += '</div>'
-    source += '<h4><%= tc_name %></h4>';
+    source += '<h4>{{tc_name}}</h4>';
 
     var render = template.compile(source);
-    var html = render(loginfo);
+    var html = render(loginfo||{});
 
     $('.aside .profile').html(html);
+
+
+    $('.navs a + ul').prev('a').on('click', function () {
+        $(this).next('ul').slideToggle();
+    });
 })

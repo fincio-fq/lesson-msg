@@ -58,8 +58,8 @@
                                 <td>15901256171</td>
                                 <td>
                                     <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs">查 看</a>
-                                    <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
-                                    <a href="javascript::" class="btn btn-warning btn-xs">注 销</a>
+                                    <a href="/studyit1/teacher/teacher_add" class="btn btn-info btn-xs">编 辑</a>
+                                    <a href="javascript:;" class="btn btn-warning btn-xs">注 销</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -121,6 +121,9 @@
     </div>
 
     <?php include('./views/common/script.html') ?>
+    <script>
+        require(['src/teacher/manages']);
+    </script>
 
 </body>
 </html>
