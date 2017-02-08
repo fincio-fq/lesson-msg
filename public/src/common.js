@@ -1,5 +1,18 @@
-define(['jquery', 'template', 'cookie'], function ($, template) {
-
+define(['jquery', 'template','nprogress', 'cookie'], function ($, template, nprogress) {
+// 退出登录
+    $('#logout').on('click', function () {
+        // confirm('确定要退出吗');
+        $.ajax({
+            url: '/api/logout',
+            type: 'post',
+            success: function (info) {
+                // console.log(info);
+                if(info.code == 200) {
+                    location.href = '/studyit1/login';
+                }
+            }
+        });
+    });
 
 
 
@@ -29,5 +42,20 @@ define(['jquery', 'template', 'cookie'], function ($, template) {
 
     $('.navs a + ul').prev('a').on('click', function () {
         $(this).next('ul').slideToggle();
+    });
+
+    // 进度条
+    nprogress.start();
+    nprogress.done();
+
+    // 全局设置loading状态
+    $(document).ajaxStart(function () {
+        $('.overlay').show();
+    });
+
+    $(document).ajaxStop(function () {
+        setTimeout(function () {
+            $('.overlay').hide();
+        }, 600);
     });
 })
